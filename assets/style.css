@@ -53,9 +53,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-body {
-
-}
 section {
 	margin-block: 6em;
 }
@@ -133,12 +130,14 @@ header {
 #banner .arrow img {
 	/*Ajout*/
 	width: 20px;
-}
+} 
 #banner .arrow_left {
 	left: 10px;
+	
 }
 #banner .arrow_right {
 	right: 10px;
+	
 }
 /* Gestion des points du carrousel */
 .dots {
@@ -164,7 +163,8 @@ header {
 	font-weight: 900;
 	font-size: 50px;
 	line-height: 66px;
-	color: white;
+	/* color: white; */
+	color: black;
 	text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 	text-align: center;
 }
@@ -173,6 +173,8 @@ header {
 	font-weight: 400;
 	font-size: 30px;
 }
+
+
 #about-us {
 	display: flex;
 }
