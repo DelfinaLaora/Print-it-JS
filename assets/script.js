@@ -17,64 +17,55 @@ const slides = [
 	}
 ]
 
-// Fonction qui génère toute la page
-function showSlides(slides) { /*prends l'argument slides qui sera l'index à afficher */
+// for(let i = 0; i < slides.length; i++) {
+// 	const dotElement = document.createElement("div");
+// 	dotElement.classList.add("dot");
+// 	const dotsElement = document.querySelector(".dots");		
+// 	dotsElement.appendChild(dotElement);		
+// }
 
-	for(let i = 0; i < slides.length; i++) {
+// for(let i = 0; i < slides.length; i++) {
+// 	const imageElement = document.createElement("img");
+// 	imageElement.classList.add(".banner-img");
+// 	const bannerElement = document.querySelector("#banner");		
+// 	bannerElement.appendChild(imageElement);		
+// }
 
-		const bullet = slides[i];
-		const bannerElement = document.querySelector("#banner");
+for (i = 0; i < slides.length; i++) {
+	let img = document.getElementsByClassName('img');
+	img.src = slides[i].image;
+	img.className = ("banner-img");
+	let tagLine = document.getElementsByClassName('p');
+	tagLine = slides[i].tagLine		
+	}
 
-		// const bannerImgElement = document.querySelectorAll("img.banner-img");
-		// bannerElement.appendChild(bannerImgElement);
-
-		const imageElement = document.createElement("img");			
-		imageElement.src = slides[i].image;
-		// imageElement.src = bullet.image;
-		bannerElement.appendChild(imageElement);
-		// document.querySelector("img").appendChild("#banner-img");
-
-		// const bannerImgElement = document.getElementsByClassName("banner-img");		
-		// // imageElement.src = slides[i].image;
-		// // // imageElement.src = bullet.image;
-		// bannerElement.appendChild(bannerImgElement);
-
-		const tagLineElement = document.createElement("p");
-		tagLineElement.innerHTML = bullet.tagLine;
-		bannerElement.appendChild(tagLineElement);
-
-		const dotsElement = document.querySelector(".dots");
-
-		const dotElement = document.querySelector(".dot");		
-		dotsElement.appendChild(dotElement);
-		// dotElement = slides[i];
-
-		
-		
-	}		
-}
-
-// premier affichage de la page
-showSlides(slides);
-
+	let slide = 0
 
 	// Ajout listener pour flèche de gauche
+
 const arrowLeft = document.querySelector(".arrow_left");
 
-arrowLeft.addEventListener("click", function() {
-	// showSlides(slideIndex += n);
-	console.log("Bonjour à gauche");	
-})
+arrowLeft.addEventListener("click", function() {	
 
-// Ajout listener pour flèche de droite
+	slide++;
+	if (slide >= slides.length) {		
+		slide = 0;
+	}
+
+	console.log(slide);	
+	console.log("Bonjour à gauche");
+});
+
+
+	// Ajout listener pour flèche de droite
 const arrowRight = document.querySelector(".arrow_right");
 
 arrowRight.addEventListener("click", function() {
-	// showSlides(slideIndex = n);
+	slide--;
+	if (slide < 0) {
+		slide = slides.length -1;	
+	}
+	console.log(slide);
 	console.log("Bonjour à droite");	
 })
-
-
-
-
 
