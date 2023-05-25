@@ -1,7 +1,7 @@
 const slides = [
 	{
 		"image":"./assets/images/slideshow/slide1.jpg",
-		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
+		"tagLine":`Impressions tous formats <span>en boutique et en ligne</span>`
 	},
 	{
 		"image":"./assets/images/slideshow/slide2.jpg",
@@ -27,19 +27,34 @@ const slides = [
 // for(let i = 0; i < slides.length; i++) {
 // 	const imageElement = document.createElement("img");
 // 	imageElement.classList.add(".banner-img");
-// 	const bannerElement = document.querySelector("#banner");		
+	const bannerElement = document.querySelector("#banner");		
 // 	bannerElement.appendChild(imageElement);		
 // }
+	let i = 0
+// for (i = 0; i < slides.length; i++) {
+	// let image = document.getElementsByTagName('img');
+	// img.src = slides[i].image;
+	// image.className = ("banner-img");
+	let baliseImage = document.getElementById("baliseImage")
+	let tagLine = document.getElementById('baliseTagLine');
+	// let tagLine = document.getElementsByTagName('p');
+	// bannerElement.appendChild(tagLine)
+	// baliseImage.innerHTML = tagLine
+	baliseImage.src = slides[2].image
+	
+		
+	const tagLines = slides.map(slides => slides.tagLine);/*fait appel aux textes uniquement dans un nouveau tableau*/
 
-for (i = 0; i < slides.length; i++) {
-	let img = document.getElementsByClassName('img');
-	img.src = slides[i].image;
-	img.className = ("banner-img");
-	let tagLine = document.getElementsByClassName('p');
-	tagLine = slides[i].tagLine		
-	}
+	let contenuTagLine = tagLine.innerHTML;
+	let html = `<p>${tagLines[2]}</p>`
+	tagLine.innerHTML = html
 
-	let slide = 0
+
+	// tagLine = slides[3].tagLine		
+	
+	// tagLine.innerHTML = html
+
+	console.log(html)
 
 	// Ajout listener pour flèche de gauche
 
@@ -47,12 +62,12 @@ const arrowLeft = document.querySelector(".arrow_left");
 
 arrowLeft.addEventListener("click", function() {	
 
-	slide++;
-	if (slide >= slides.length) {		
-		slide = 0;
-	}
+	// slide++;
+	// if (slide >= slides.length) {		
+	// 	slide = 0;
+	// }
 
-	console.log(slide);	
+	// console.log(slide);	
 	console.log("Bonjour à gauche");
 });
 
@@ -61,10 +76,10 @@ arrowLeft.addEventListener("click", function() {
 const arrowRight = document.querySelector(".arrow_right");
 
 arrowRight.addEventListener("click", function() {
-	slide--;
-	if (slide < 0) {
-		slide = slides.length -1;	
-	}
+	// slide--;
+	// if (slide < 0) {
+	// 	slide = slides.length -1;	
+	// }
 	console.log(slide);
 	console.log("Bonjour à droite");	
 })
