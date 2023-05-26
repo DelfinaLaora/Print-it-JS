@@ -30,7 +30,8 @@ const slides = [
 	const bannerElement = document.querySelector("#banner");		
 // 	bannerElement.appendChild(imageElement);		
 // }
-	let i = 0
+	
+	
 // for (i = 0; i < slides.length; i++) {
 	// let image = document.getElementsByTagName('img');
 	// img.src = slides[i].image;
@@ -40,47 +41,59 @@ const slides = [
 	// let tagLine = document.getElementsByTagName('p');
 	// bannerElement.appendChild(tagLine)
 	// baliseImage.innerHTML = tagLine
-	baliseImage.src = slides[2].image
+	// baliseImage.src = slides[0].image /*modifie l'image dans le dom*/
 	
-		
+	const images = slides.map(slides => slides.image);/*fait appel aux images uniquement dans un nouveau tableau*/
+	// const imageDelete = images.splice(0, 1);/*enlève la première image du tableau*/
+	let i = 0
+
+	baliseImage.src = images[i]
+	let slide = images.length
+
 	const tagLines = slides.map(slides => slides.tagLine);/*fait appel aux textes uniquement dans un nouveau tableau*/
+	// const tagLinesDelete = tagLines.splice(0, 1);/*enlève le premier paragraphe du tableau*/
 
-	let contenuTagLine = tagLine.innerHTML;
-	let html = `<p>${tagLines[2]}</p>`
-	tagLine.innerHTML = html
+	// let contenuTagLine = tagLine.innerHTML;/*récupère le contenu du tagline dans le dom*/
+	let newTagLine = `<p>${tagLines[i]}</p>`/*modifie la tagline dans le dom*/
+	tagLine.innerHTML = newTagLine
 
-
-	// tagLine = slides[3].tagLine		
-	
-	// tagLine.innerHTML = html
-
-	console.log(html)
+function suivant(){
+	baliseImage.src = images[i]
+	newTagLine = `<p>${tagLines[i]}</p>`/*modifie la tagline dans le dom*/
+	tagLine.innerHTML = newTagLine
+}
 
 	// Ajout listener pour flèche de gauche
 
 const arrowLeft = document.querySelector(".arrow_left");
 
-arrowLeft.addEventListener("click", function() {	
-
-	// slide++;
-	// if (slide >= slides.length) {		
-	// 	slide = 0;
-	// }
-
-	// console.log(slide);	
-	console.log("Bonjour à gauche");
-});
+arrowLeft.addEventListener("click", function() {
+	i--;	
+	if( i >= slide) {
+		i = 0;
+	}
+	if( i < 0) {
+		i = slide-1;
+	}
+	suivant()
+	
+		console.log("Bonjour à gauche")	
+	});
 
 
 	// Ajout listener pour flèche de droite
 const arrowRight = document.querySelector(".arrow_right");
 
 arrowRight.addEventListener("click", function() {
-	// slide--;
-	// if (slide < 0) {
-	// 	slide = slides.length -1;	
-	// }
-	console.log(slide);
-	console.log("Bonjour à droite");	
+	i++;
+	if( i >= slide) {
+		i = 0;
+	}
+	if( i < 0) {
+		i = slide-1;
+	}
+	suivant()
+	
+	console.log("Bonjour à droite");
 })
 
