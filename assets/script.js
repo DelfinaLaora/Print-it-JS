@@ -24,6 +24,14 @@ const tagLine = document.getElementById("baliseTagLine");
 const bannerImg = document.getElementsByClassName("banner-img")	
 const dotElement = document.getElementsByClassName("dot")
 
+// création des dots
+for(let i = 0; i < slides.length; i++) {
+	const dotElement = document.createElement("div");
+	dotElement.classList.add("dot");
+	const dotsElement = document.querySelector(".dots");		
+	dotsElement.appendChild(dotElement);		
+}
+
 let i = 0
 let slide = slides.length;
 
@@ -48,6 +56,7 @@ function ShowSlide(){
 		i = slide-1;
 	}
 }
+
 
 	// on fait avancer les dots en fonctions des images
 function dot(){	
