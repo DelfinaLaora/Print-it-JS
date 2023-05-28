@@ -1,7 +1,7 @@
 const slides = [
 	{
 		"image":"./assets/images/slideshow/slide1.jpg",
-		"tagLine":`Impressions tous formats <span>en boutique et en ligne</span>`
+		"tagLine":"Impressions tous formats <span>en boutique et en ligne</span>"
 	},
 	{
 		"image":"./assets/images/slideshow/slide2.jpg",
@@ -27,17 +27,15 @@ const dotElement = document.getElementsByClassName("dot")
 let i = 0
 let slide = slides.length;
 
-	// On modifie la source des images
-baliseImage.src = slides[i].image; /*modifie l'image dans le dom*/
+	// On modifie la source des images dans le DOM
+baliseImage.src = slides[i].image;
 
-	// On modifie la source des taglines
-let newTagLine = `<p>${slides[i].tagLine}</p>`;/*modifie la tagline dans le dom*/
+	// On modifie la source des taglines dans le DOM
 tagLine.innerHTML = slides[i].tagLine;
 
 	// on fait avancer les sliders en changeant la source
 function suivant(){
-	baliseImage.src = slides[i].image;
-	newTagLine = `<p>${slides[i].tagLine}</p>`;/*modifie la tagline dans le dom*/
+	baliseImage.src = slides[i].image;	
 	tagLine.innerHTML = slides[i].tagLine;	
 }
 
@@ -54,10 +52,10 @@ function ShowSlide(){
 	// on fait avancer les dots en fonctions des images
 function dot(){	
 	for(let i = 0; i < dotElement.length; i++) {
-		dotElement[i].classList.remove('dot_selected');/*je retire dot-select de tous les points*/
-	  }	 
-	dotElement[i].classList.add('dot_selected');/*j'ajoute dot-select sur le point cliqué*/
-	}	
+		dotElement[i].classList.remove('dot_selected');/*je retire dot-selected de tous les points*/
+	}	 
+	dotElement[i].classList.add('dot_selected');/*j'ajoute dot-selected sur le point selectionné*/
+}	
 	
 	// Ajout listener pour flèche de gauche
 const arrowLeft = document.querySelector(".arrow_left");
@@ -67,7 +65,7 @@ arrowLeft.addEventListener("click", function() {
 	ShowSlide()
 	suivant()
 	dot()
-	});
+});
 
 	// Ajout listener pour flèche de droite
 const arrowRight = document.querySelector(".arrow_right");
