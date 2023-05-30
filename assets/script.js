@@ -22,7 +22,7 @@ const tagLine = document.querySelector("#banner p");
 const dotElements = document.getElementsByClassName("dot");/*récupère toutes les class dot*/
 const dotsElement = document.querySelector(".dots");
 
-let currentSlide = 0
+let currentSlide = 0;
 
 	// création des dots
 for(let i = 0; i < slides.length; i++) {	
@@ -64,9 +64,9 @@ function dot(){
 
 	// Fonction qui regroupe les fonctions du slider
 function updateSlide(){
-	showSlide()
-	next()
-	dot()
+	showSlide();
+	next();
+	dot();
 }
 	
 	// Ajout listener pour flèche de gauche
@@ -74,7 +74,7 @@ const arrowLeft = document.querySelector(".arrow_left");
 
 arrowLeft.addEventListener("click", function() {
 	currentSlide--;	
-	updateSlide()
+	updateSlide();
 });
 
 	// Ajout listener pour flèche de droite
@@ -82,6 +82,6 @@ const arrowRight = document.querySelector(".arrow_right");
 
 arrowRight.addEventListener("click", function() {
 	currentSlide++;
-	updateSlide()
+	updateSlide();
 });
 
