@@ -26,10 +26,13 @@ let currentSlide = 0;
 
 	// création des dots
 for(let i = 0; i < slides.length; i++) {	
-	const div = document.createElement("div");
-	div.classList.add("dot");			
-	dotsElement.appendChild(div);		
-}
+			const div = document.createElement("div");
+			div.classList.add("dot");						
+			dotsElement.appendChild(div);	
+		if(i == 0){
+			div.classList.add("dot_selected");
+		}
+	}
 
 	// on change la source de l'image et du paragraphe
 function next(){
@@ -37,7 +40,7 @@ function next(){
 	tagLine.innerHTML = slides[currentSlide].tagLine;	
 }
 
-	// On appel la fonction pour afficher le 1er objet de sliders
+	// On appel la fonction next() pour afficher le 1er objet de sliders
 next()
 
 	// on fait avancer le sliders en boucle
@@ -52,15 +55,9 @@ function showSlide(){
 
 	// on fait avancer les dots en fonctions des images
 function dot(){	
-	for(i = 0; i < dotElements.length; i++) {
-		dotElements[i].classList.remove('dot_selected');/*je retire dot-selected de tous les points*/
-	}	
-	dotElements[currentSlide].classList.add('dot_selected');/*j'ajoute dot-selected sur le point selectionné*/
+	document.querySelector(".dot_selected").classList.remove("dot_selected");	/*On retire dot-selected du dernier point slectionné*/		 
+	dotElements[currentSlide].classList.add("dot_selected");	/*On ajoute dot-selected sur le point selectionné*/
 }	
-// function dot(){		/*seulement si les "dot" sont crées directement dans le DOM avec ajout de la balise "dot_selected"*/
-// 	document.querySelector('.dot_selected').classList.remove('dot_selected');/*je retire dot-selected du dernier point slectionné*/		 
-// 	dotElements[currentSlide].classList.add('dot_selected');/*j'ajoute dot-selected sur le point selectionné*/
-// }	
 
 	// Fonction qui regroupe les fonctions du slider
 function updateSlide(){
