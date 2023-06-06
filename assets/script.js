@@ -17,24 +17,15 @@ const slides = [
 	}
 ]
 
+	// Appel des balises HTML
 const baliseImage = document.querySelector(".banner-img");
 const tagLine = document.querySelector("#banner p");
-const dotElements = document.getElementsByClassName("dot");/*récupère toutes les class dot*/
 const dotsElement = document.querySelector(".dots");
+const dotElements = document.getElementsByClassName("dot");/*récupère toutes les class dot*/
 
 let currentSlide = 0;
 
-	// création des dots
-for(let i = 0; i < slides.length; i++) {	
-			const div = document.createElement("div");
-			div.classList.add("dot");						
-			dotsElement.appendChild(div);	
-		if(i == 0){
-			div.classList.add("dot_selected");
-		}
-	}
-
-	// on change la source de l'image et du paragraphe
+	// On change la source de l'image et du paragraphe
 function next(){
 	baliseImage.src = slides[currentSlide].image;	
 	tagLine.innerHTML = slides[currentSlide].tagLine;	
@@ -43,7 +34,7 @@ function next(){
 	// On appel la fonction next() pour afficher le 1er objet de sliders
 next()
 
-	// on fait avancer le sliders en boucle
+	// On fait avancer le sliders en boucle
 function showSlide(){
 	if(currentSlide >= slides.length) {
 		currentSlide = 0;
@@ -53,7 +44,17 @@ function showSlide(){
 	}
 }
 
-	// on fait avancer les dots en fonctions des images
+	// Création des class dot
+for(let i = 0; i < slides.length; i++) {	
+			const div = document.createElement("div");
+			div.classList.add("dot");						
+			dotsElement.appendChild(div);	
+		if(i == 0){
+			div.classList.add("dot_selected");	/*Ajoute la balise dot_selected à la première div*/
+		}
+	}
+
+	// On fait avancer les class dot en fonctions des images
 function dot(){	
 	document.querySelector(".dot_selected").classList.remove("dot_selected");	/*On retire dot-selected du dernier point slectionné*/		 
 	dotElements[currentSlide].classList.add("dot_selected");	/*On ajoute dot-selected sur le point selectionné*/
